@@ -61,7 +61,8 @@
 ## **4. 공유 문서 (Shared Documents)**
 
 * **Notion**
-    * https://www.notion.so/VR-2808222a801b80a5a6eec246e4bce6b6
+    * 아이디어 공유 : https://www.notion.so/VR-2808222a801b80a5a6eec246e4bce6b6
+    * 자료조사 : https://www.notion.so/28a28af91ad680abadcfdc27eacf95db
 * **GitMind**
     * https://gitmind.com/app/docs/morbq5mj
 * **Figma**
