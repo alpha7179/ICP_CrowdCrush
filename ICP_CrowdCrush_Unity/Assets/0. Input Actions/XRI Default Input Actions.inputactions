@@ -1,5 +1,4 @@
 {
-    "version": 1,
     "name": "XRI Default Input Actions",
     "maps": [
         {
@@ -2121,15 +2120,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Teleport ValueB",
-                    "type": "Value",
-                    "id": "e4641066-e07b-41b2-ae30-3971d34a9d6c",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Activate",
                     "type": "Button",
                     "id": "41976d89-60de-4deb-bff9-16b4af96b290",
@@ -2302,17 +2292,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0cca1295-cde4-46f8-b5f8-d34755e54a54",
-                    "path": "<XRController>{RightHand}/{SecondaryButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Teleport ValueB",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
