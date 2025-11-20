@@ -4,10 +4,10 @@ using UnityEngine.InputSystem;
 /// <summary>
 /// XR 컨트롤러 입력을 처리하는 싱글톤 매니저
 /// </summary>
-public class ControllerInputManager2 : MonoBehaviour
+public class ControllerInputManager : MonoBehaviour
 {
     // 싱글톤 인스턴스
-    public static ControllerInputManager2 Instance { get; private set; }
+    public static ControllerInputManager Instance { get; private set; }
 
     [Header("Input Actions")]
     [SerializeField] private InputActionAsset inputActions;

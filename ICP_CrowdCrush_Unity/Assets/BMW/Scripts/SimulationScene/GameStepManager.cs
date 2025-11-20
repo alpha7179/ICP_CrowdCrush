@@ -5,7 +5,7 @@ using System.Collections;
 /// [V5] 6단계 생존 시나리오의 흐름(Flow)을 제어하는 핵심 FSM 매니저.
 /// 각 단계별 진입, 수행, 성공 판정 및 연출 제어를 담당합니다.
 /// </summary>
-public class GameStepManager2 : MonoBehaviour
+public class GameStepManager : MonoBehaviour
 {
     [Header("Linked Managers")]
     [SerializeField] private GameUIManager uiManager;
@@ -137,10 +137,10 @@ public class GameStepManager2 : MonoBehaviour
             // Grip 버튼 입력 확인 (ControllerInputManager2 싱글톤 활용)
             // 추가로 손이 기둥 Collider 안에 있는지 체크하는 로직이 있으면 더 좋음
             bool isGripping = false;
-            if (ControllerInputManager2.Instance != null)
+            if (ControllerInputManager.Instance != null)
             {
-                isGripping = ControllerInputManager2.Instance.IsLeftGripHeld ||
-                             ControllerInputManager2.Instance.IsRightGripHeld;
+                isGripping = ControllerInputManager.Instance.IsLeftGripHeld ||
+                             ControllerInputManager.Instance.IsRightGripHeld;
             }
 
             if (isGripping)

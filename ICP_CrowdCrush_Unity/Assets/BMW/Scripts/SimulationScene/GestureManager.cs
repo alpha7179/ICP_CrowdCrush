@@ -28,12 +28,12 @@ public class GestureManager : MonoBehaviour
         // 1. 제스처 판정
         isGestureDetected = CheckGestureGeometry();
 
-        // 2. 버튼 판정 (ControllerInputManager2 싱글톤 사용)
+        // 2. 버튼 판정 (ControllerInputManager 싱글톤 사용)
         // 안전장치: 센서가 튀거나 인식이 안 될 때 버튼으로 대체
-        if (ControllerInputManager2.Instance != null)
+        if (ControllerInputManager.Instance != null)
         {
-            isButtonOverride = ControllerInputManager2.Instance.IsLeftTriggerHeld &&
-                               ControllerInputManager2.Instance.IsRightTriggerHeld;
+            isButtonOverride = ControllerInputManager.Instance.IsLeftTriggerHeld &&
+                               ControllerInputManager.Instance.IsRightTriggerHeld;
         }
 
         return isGestureDetected || isButtonOverride;

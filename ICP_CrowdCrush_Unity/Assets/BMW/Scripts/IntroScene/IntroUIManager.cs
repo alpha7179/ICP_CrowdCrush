@@ -78,9 +78,7 @@ public class IntroUIManager : MonoBehaviour
         currentMainPanel = null;
     }
 
-    /// <summary>
-    /// 최상위 패널(Intro <-> Start)을 전환
-    /// </summary>
+    // 최상위 패널(Intro <-> Start)을 전환
     private void SwitchTopPanel(GameObject panelToActivate)
     {
         if (currentTopPanel == panelToActivate) return;
@@ -94,9 +92,7 @@ public class IntroUIManager : MonoBehaviour
         currentTopPanel = panelToActivate;
     }
 
-    /// <summary>
-    /// StartPanel 내부의 메인 패널(Place, Manual 등)을 전환
-    /// </summary>
+    // StartPanel 내부의 메인 패널(Place, Manual 등)을 전환
     private void SwitchMainPanel(GameObject panelToActivate)
     {
         if (currentMainPanel == panelToActivate) return; 
@@ -119,9 +115,7 @@ public class IntroUIManager : MonoBehaviour
         currentMainPanel = panelToActivate;
     }
 
-    /// <summary>
-    /// [IntroButton]에 연결: 인트로를 닫고 메인 메뉴(StartPanel)를 염
-    /// </summary>
+    // [IntroButton]에 연결: 인트로를 닫고 메인 메뉴(StartPanel)를 염
     public void OnClickIntroButton()
     {
         if (isDebug) Debug.Log("IntroButton Clicked");
@@ -131,27 +125,21 @@ public class IntroUIManager : MonoBehaviour
         SwitchMainPanel(placePanel);
     }
 
-    /// <summary>
-    /// [PlaceButton]에 연결: 장소 선택 패널을 염
-    /// </summary>
+    // [PlaceButton]에 연결: 장소 선택 패널을 염
     public void OnClickPlaceButton()
     {
         if (isDebug) Debug.Log("PlaceButton Clicked");
         SwitchMainPanel(placePanel);
     }
 
-    /// <summary>
-    /// [ManualButton]에 연결: 매뉴얼 패널을 염
-    /// </summary>
+    // [ManualButton]에 연결: 매뉴얼 패널을 염
     public void OnClickManualButton()
     {
         if (isDebug) Debug.Log("ManualButton Clicked");
         SwitchMainPanel(manualPanel);
     }
 
-    /// <summary>
-    /// [TipsButton]에 연결: 팁 패널을 염
-    /// </summary>
+    // [TipsButton]에 연결: 팁 패널을 염
     public void OnClickTipsButton()
     {
         if (isDebug) Debug.Log("TipsButton Clicked");
@@ -162,28 +150,31 @@ public class IntroUIManager : MonoBehaviour
         UpdateTipsPanelPage(tipPageNum);
     }
 
-    /// <summary>
-    /// [SettingButton]에 연결: 설정 패널을 염
-    /// </summary>
+    // [SettingButton]에 연결: 설정 패널을 염
     public void OnClickSettingButton()
     {
         if (isDebug) Debug.Log("SettingButton Clicked");
         SwitchMainPanel(settingPanel);
     }
 
-    /// <summary>
-    /// [PlayButton]에 연결: 체험을 시작
-    /// </summary>
+    ///[PlayButton]에 연결: 체험을 시작
     public void OnClickPlayButton()
     {
         if (isDebug) Debug.Log("체험을 시작합니다.");
-        //  씬(Scene) 전환 로직
-        //  UnityEngine.SceneManagement.SceneManager.LoadScene("MainGameScene");
+
+        // GameManager를 통해 씬 전환
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.LoadScene("SimulationScene");
+        }
+        else
+        {
+            // GameManager가 없을 때
+            UnityEngine.SceneManagement.SceneManager.LoadScene("SimulationScene");
+        }
     }
 
-    /// <summary>
-    /// [PreTipButton]에 연결: 팁 이전 페이지로
-    /// </summary>
+    // [PreTipButton]에 연결: 팁 이전 페이지로
     public void OnClickPreTipButton()
     {
         if (isDebug) Debug.Log("PreTipButton Clicked");
@@ -194,9 +185,7 @@ public class IntroUIManager : MonoBehaviour
         UpdateTipsPanelPage(tipPageNum);
     }
 
-    /// <summary>
-    /// [NextTipButton]에 연결: 팁 다음 페이지로
-    /// </summary>
+    // [NextTipButton]에 연결: 팁 다음 페이지로
     public void OnClickNextTipButton()
     {
         if (isDebug) Debug.Log("NextTipButton Clicked");
@@ -207,9 +196,7 @@ public class IntroUIManager : MonoBehaviour
         UpdateTipsPanelPage(tipPageNum);
     }
 
-    /// <summary>
-    /// 팁 페이지 번호에 맞춰 올바른 페이지만 활성화함
-    /// </summary>
+    // 팁 페이지 번호에 맞춰 올바른 페이지만 활성화함
     private void UpdateTipsPanelPage(int page)
     {
         if (tip1) tip1.SetActive(page == 1);
@@ -219,9 +206,7 @@ public class IntroUIManager : MonoBehaviour
         if (tip5) tip5.SetActive(page == 5);
     }
 
-    /// <summary>
-    /// 오디오 슬라이더 값이 변경될 때 호출
-    /// </summary>
+    // 오디오 슬라이더 값이 변경될 때 호출
     private void OnAudioSliderValueChanged(float value)
     {
         audioValue = Mathf.RoundToInt(value);
@@ -230,9 +215,7 @@ public class IntroUIManager : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// 모드 슬라이더 값이 변경될 때 호출
-    /// </summary>
+    // 모드 슬라이더 값이 변경될 때 호출
     private void OnModeSliderValueChanged(float value)
     {
         modeValue = Mathf.RoundToInt(value);
